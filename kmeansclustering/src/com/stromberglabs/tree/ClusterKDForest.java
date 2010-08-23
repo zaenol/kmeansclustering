@@ -44,6 +44,12 @@ public class ClusterKDForest {
 	private ClusterKDTree trees[];
 	private int mMaxBins;
 	
+	/**
+	 * 
+	 * @param clusters
+	 * @param numTrees
+	 * @param maxBinsChecked
+	 */
 	public ClusterKDForest(Clusterable clusters[], int numTrees, int maxBinsChecked){
 		trees = new ClusterKDTree[numTrees];
 		for ( int i = 0; i < numTrees; i++ ){
@@ -52,6 +58,18 @@ public class ClusterKDForest {
 		mMaxBins = maxBinsChecked;
 	}
 	
+	/**
+	 * Choses the closest point in the tree through the following method:
+	 * - Create N KD trees which split on random dimensions
+	 * - Poll them for their approximate nearest neighbor checking M max bins
+	 * - Whatever bin gets the most votes "wins"
+	 * 
+	 * This is NOT guaranteed to return the closest, but has a good chance for
+	 * high dimensional data.
+	 * 
+	 * @param point
+	 * @return
+	 */
 	public Clusterable findClosest(Clusterable point){
 		Map<Clusterable,Integer> votes = new HashMap<Clusterable,Integer>();
 		for ( int i = 0; i < trees.length; i++ ){
