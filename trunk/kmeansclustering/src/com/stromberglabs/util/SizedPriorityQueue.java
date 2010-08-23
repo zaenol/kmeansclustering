@@ -33,10 +33,22 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * 
+ * <pre>
  * A priority queue that maintains a list of the top N values that are
  * added to the list. All the other values are dropped. It's useful for
  * tracking the top N scores of a result set.
+ * 
+ * For instance, if you are processing scores, and you only want the top 3,
+ * you could do something like:
+ * <code>
+ * SizedPriorityQueue<Integer> queue = new SizedPriorityQueue<Integer>(3,false);
+ * for ( Score score : scores ){
+ * 		queue.add(score.getId(),score.getValue());
+ * }
+ * </code>
+ * at the end of the loop the queue will have an ordered list of the highest
+ * score values.
+ * </pre>
  * 
  * @author Andrew Stromberg
  *
@@ -49,6 +61,13 @@ public class SizedPriorityQueue<T> {
 	private LinkedList<Double> mPriorities;
 	private Comparator<T> mComparator;
 	
+	/**
+	 * Creates a fixed size priority queue that only tracks N values
+	 *  
+	 * @param size - The maximum number of values to store
+	 * @param getLowest - false means to track the highest N values, 
+	 * 						true means to track the lowest N values
+	 */
 	public SizedPriorityQueue(int size, boolean getLowest) {
 		mSize = size;
 		mGetLowest = getLowest;
@@ -56,11 +75,28 @@ public class SizedPriorityQueue<T> {
 		mPriorities = new LinkedList<Double>();
 	}
 	
+	/**
+	 * Creates a fixed size priority queue with an explicit comparator for the
+	 * class that you want to track. This can be handy if the generic class you
+	 * have doesn't implement {@link Comparable}
+	 * 
+	 * @param size - The maximum number of values to store
+	 * @param getLowest - false means to track the highest N values, 
+	 * 						true means to track the lowest N values
+	 * @param comparator - Explicit comparator for the classyou are tracking
+	 */
 	public SizedPriorityQueue(int size, boolean getLowest, Comparator<T> comparator) {
 		this(size,getLowest);
 		mComparator = comparator;
 	}
 	
+	/**
+	 * Add a value to the current list of items, it will be inserted into the
+	 * correct position in the list if it has a higher priority than the other
+	 * items, otherwise it will be dropped
+	 * 
+	 * @param value
+	 */
 	public void add(T value){
 		if ( mComparator == null ) throw new RuntimeException("Trying to use priority queue default add without comparator defined");
 		int index = 0;
@@ -78,6 +114,13 @@ public class SizedPriorityQueue<T> {
 		if ( mList.size() > mSize ) mList.removeLast();
 	}
 	
+	/**
+	 * Add a value to the current list of items, it will be inserted into the
+	 * correct position in the list if it has a higher priority than the other
+	 * items, otherwise it will be dropped
+	 * 
+	 * @param value
+	 */
 	public void add(T value, double priority){
 		int index = 0;
 
@@ -100,20 +143,37 @@ public class SizedPriorityQueue<T> {
 		}
 	}
 	
+	/**
+	 * Like any ohter queue, it returns the top 
+	 * @return
+	 */
 	public T pop(){
 		if ( mPriorities.size() > 0 )
 			mPriorities.pop();
 		return mList.pop();
 	}
 	
+	/**
+	 * Just returns the top in the list, doesn't remove it
+	 * 
+	 * @return
+	 */
 	public T poll(){
 		return mList.peek();
 	}
 	
+	/**
+	 * @return The size of current list
+	 */
 	public int size(){
 		return mList.size();
 	}
 	
+	/**
+	 * Returns an ordered list of all of the scores currently held
+	 * 
+	 * @return
+	 */
 	public List<T> getAllScores(){
 		return mList;
 	}

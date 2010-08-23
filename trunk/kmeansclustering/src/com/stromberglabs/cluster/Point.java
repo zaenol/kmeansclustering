@@ -29,6 +29,13 @@ package com.stromberglabs.cluster;
 
 import com.stromberglabs.jopensurf.Clusterable;
 
+/**
+ * A simple point, all it does is implement {@link Clusterable} for a two
+ * dimensional space. Intended mainly for testing these clustering classes.
+ * 
+ * @author Andrew
+ *
+ */
 public class Point implements Clusterable {
 	private float x;
 	private float y;

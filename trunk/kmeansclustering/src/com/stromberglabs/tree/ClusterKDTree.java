@@ -36,6 +36,11 @@ import com.stromberglabs.cluster.Point;
 import com.stromberglabs.jopensurf.Clusterable;
 import com.stromberglabs.util.SizedPriorityQueue;
 
+/**
+ * 
+ * @author Andrew
+ *
+ */
 public class ClusterKDTree {
 	private static Random r = new Random(System.currentTimeMillis());
 	
@@ -164,10 +169,22 @@ public class ClusterKDTree {
 		return closest;
 	}
 	
+	/**
+	 * Returns the exact nearest neighbor by checking all of the possible bins
+	 * that might contain the closest neighbor. I guess there could potentially
+	 * be a situation where you have more than Integer.MAX_VALUE bins, so be wary. 
+	 * 
+	 * @param point
+	 * @return
+	 */
 	public Clusterable exactNearestNeighbor(Clusterable point){
 		return restrictedNearestNeighbor(point,Integer.MAX_VALUE);
 	}
 	
+	/**
+	 * Kind of pretty prints the current tree. Not terrible useful, but I was loathe
+	 * to get rid of it.
+	 */
 	public void print(){ print(0); }
 	
 	private void print(int height){
