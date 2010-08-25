@@ -30,7 +30,7 @@ package com.stromberglabs.cluster;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.stromberglabs.jopensurf.Clusterable;
+import com.stromberglabs.cluster.Clusterable;
 
 public class Cluster implements Clusterable {
 	private float[] mOriginalMeanLocation;

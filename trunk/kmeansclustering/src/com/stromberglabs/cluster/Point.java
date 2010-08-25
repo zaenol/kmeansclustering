@@ -27,7 +27,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 package com.stromberglabs.cluster;
 
-import com.stromberglabs.jopensurf.Clusterable;
+import com.stromberglabs.cluster.Clusterable;
 
 /**
  * A simple point, all it does is implement {@link Clusterable} for a two

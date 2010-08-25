@@ -30,6 +30,13 @@ package com.stromberglabs.cluster.checker;
 import com.stromberglabs.cluster.Cluster;
 import com.stromberglabs.cluster.ClusterUtils;
 
+/**
+ * This cluster checker considers clustering done if all of the clusters moved
+ * less than a certain fixed amount. 
+ * 
+ * @author Andrew
+ *
+ */
 public class DriftClusterChecker implements ClusterChecker {
 	
 	private double mDriftTolerance;

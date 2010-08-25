@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.stromberglabs.jopensurf.Clusterable;
+import com.stromberglabs.cluster.Clusterable;
 import com.stromberglabs.tree.ClusterKDTree;
 
 public class KMeansTreeClusterer extends AbstractKClusterer {

@@ -36,7 +36,7 @@ import java.util.Random;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.stromberglabs.jopensurf.Clusterable;
+import com.stromberglabs.cluster.Clusterable;
 
 public class KMeansClusteringTest {
 	
