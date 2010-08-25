@@ -29,7 +29,7 @@ package com.stromberglabs.cluster;
 
 import java.util.List;
 
-import com.stromberglabs.jopensurf.Clusterable;
+import com.stromberglabs.cluster.Clusterable;
 
 /**
  * 

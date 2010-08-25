@@ -32,6 +32,16 @@ import java.util.Map;
 
 import com.stromberglabs.cluster.Cluster;
 
+/**
+ * <pre>
+ * This cluster checker considers clustering done if it meets two conditions:
+ *  1) That the percentage of point that shifted was less than K% of the previous
+ *  	count for that cluster (i.e. had less than a 5% change)
+ *  2) That all the clusters had fewer than N points move in or out of it
+ * </pre>
+ * @author Andrew
+ *
+ */
 public class ShiftCountClusterChecker implements ClusterChecker {
 	Map<Integer,Integer> mPreviousCounts = new HashMap<Integer, Integer>();
 	

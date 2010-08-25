@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import com.stromberglabs.jopensurf.Clusterable;
+import com.stromberglabs.cluster.Clusterable;
 
 public class ElkanKMeansClusterer extends AbstractKClusterer {
 	public static double DISTANCE_TOLERANCE = 0.005;

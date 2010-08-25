@@ -30,7 +30,7 @@ package com.stromberglabs.tree;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.stromberglabs.jopensurf.Clusterable;
+import com.stromberglabs.cluster.Clusterable;
 
 /**
  * A class that will create a forest of KDTrees based on a set of Clusterable points

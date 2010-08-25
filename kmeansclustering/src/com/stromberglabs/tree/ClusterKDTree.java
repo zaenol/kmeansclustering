@@ -33,7 +33,7 @@ import java.util.Vector;
 
 import com.stromberglabs.cluster.ClusterUtils;
 import com.stromberglabs.cluster.Point;
-import com.stromberglabs.jopensurf.Clusterable;
+import com.stromberglabs.cluster.Clusterable;
 import com.stromberglabs.util.SizedPriorityQueue;
 
 /**

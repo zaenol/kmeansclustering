@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.stromberglabs.cluster.checker.ClusterChecker;
-import com.stromberglabs.jopensurf.Clusterable;
+import com.stromberglabs.cluster.Clusterable;
 import com.stromberglabs.tree.ClusterKDForest;
 
 public class KMeansForestClusterer extends AbstractKClusterer {
