@@ -42,7 +42,7 @@ public class KMeansTreeClusterer extends AbstractKClusterer {
 		super();
 	}
 	
-	protected Cluster[] assignClusters(final Cluster[] clusters,final List<Clusterable> values){
+	protected Cluster[] assignClusters(final Cluster[] clusters,final List<? extends Clusterable> values){
 		ClusterKDTree tree = new ClusterKDTree(clusters,true);
 		for ( Clusterable item : values ){
 			Cluster closest = (Cluster)tree.exactNearestNeighbor(item);

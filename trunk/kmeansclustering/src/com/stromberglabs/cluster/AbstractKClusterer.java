@@ -68,7 +68,7 @@ public abstract class AbstractKClusterer implements KClusterer {
 		mMaxReclustering = maxReclustering;
 	}
 	
-	public Cluster[] cluster(final List<Clusterable> values, int numClusters) {
+	public Cluster[] cluster(final List<? extends Clusterable> values, int numClusters) {
 		Cluster[] clusters = calculateInitialClusters(values,numClusters);
 		
 		boolean recalculateClusters = true;
@@ -96,7 +96,7 @@ public abstract class AbstractKClusterer implements KClusterer {
 		return clusters;
 	}
 
-	protected abstract Cluster[] assignClusters(Cluster[] clusters,final List<Clusterable> values);
+	protected abstract Cluster[] assignClusters(Cluster[] clusters,final List<? extends Clusterable> values);
 	
 	protected abstract Cluster[] getNewClusters(Cluster[] clusters);
 	
@@ -106,7 +106,7 @@ public abstract class AbstractKClusterer implements KClusterer {
 	* @param numClusters
 	* @return
 	*/
-	protected Cluster[] calculateInitialClusters(List<Clusterable> values, int numClusters){
+	protected Cluster[] calculateInitialClusters(List<? extends Clusterable> values, int numClusters){
 		Cluster[] clusters = new Cluster[numClusters];
 		//choose centers and create the initial clusters
 		Random random = new Random(1);

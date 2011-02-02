@@ -41,5 +41,5 @@ import com.stromberglabs.cluster.Clusterable;
  *
  */
 public interface KClusterer {
-	public Cluster[] cluster(final List<Clusterable> values, int numClusters);
+	public Cluster[] cluster(final List<? extends Clusterable> values, int numClusters);
 }

@@ -62,7 +62,7 @@ public class KMeansForestClusterer extends AbstractKClusterer {
 	 * @param clusters
 	 * @param values
 	 */
-	protected Cluster[] assignClusters(final Cluster[] clusters,final List<Clusterable> values){
+	protected Cluster[] assignClusters(final Cluster[] clusters,final List<? extends Clusterable> values){
 		ClusterKDForest forest = new ClusterKDForest(clusters,mNumTrees,10);
 		for ( Clusterable item : values ){
 			Clusterable closest = forest.findClosest(item);

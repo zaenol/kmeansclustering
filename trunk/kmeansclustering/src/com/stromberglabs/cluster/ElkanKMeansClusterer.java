@@ -55,7 +55,7 @@ public class ElkanKMeansClusterer extends AbstractKClusterer {
 		super();
 	}
 	
-	protected Cluster[] assignClusters(Cluster[] clusters, List<Clusterable> values) {
+	protected Cluster[] assignClusters(Cluster[] clusters, List<? extends Clusterable> values) {
 		int numClusters = clusters.length;
 		//transferring points into new clusters now so I don't have to keep track of what I've already
 		//seen in the old clusters
@@ -194,7 +194,7 @@ public class ElkanKMeansClusterer extends AbstractKClusterer {
 	* @param numClusters
 	* @return
 	*/
-	protected Cluster[] calculateInitialClusters(List<Clusterable> values,int numClusters){
+	protected Cluster[] calculateInitialClusters(List<? extends Clusterable> values,int numClusters){
 		Cluster[] clusters = new Cluster[numClusters];
 		//Random random = new Random(System.currentTimeMillis());
 		Random random = new Random(1);
@@ -210,7 +210,7 @@ public class ElkanKMeansClusterer extends AbstractKClusterer {
 		return assignClustersByDistance(values,clusters);
 	}
 	
-	protected Cluster[] assignClustersByDistance(List<Clusterable> values, Cluster[] clusters){
+	protected Cluster[] assignClustersByDistance(List<? extends Clusterable> values, Cluster[] clusters){
 		for ( int j = 0; j < values.size(); j++ ){
 			Clusterable val = values.get(j);
 			Cluster nearestCluster = null;
