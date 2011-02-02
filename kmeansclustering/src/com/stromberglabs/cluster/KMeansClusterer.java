@@ -38,12 +38,12 @@ public class KMeansClusterer extends AbstractKClusterer {
 		super();
 	}
 	
-	protected Cluster[] assignClusters(Cluster[] clusters,final List<Clusterable> values){
+	protected Cluster[] assignClusters(Cluster[] clusters,final List<? extends Clusterable> values){
 		assignClustersByDistance(clusters, values);
 		return clusters;
 	}
 	
-	protected void assignClustersByDistance(Cluster[] clusters, List<Clusterable> values){
+	protected void assignClustersByDistance(Cluster[] clusters, List<? extends Clusterable> values){
 		for ( int j = 0; j < values.size(); j++ ){
 			Clusterable val = values.get(j);
 			Cluster nearestCluster = null;
